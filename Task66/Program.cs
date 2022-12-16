@@ -2,6 +2,7 @@
 // натуральных элементов в промежутке от M до N.
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
+Console.Clear();
 
 Console.Write("Введите число M: ");
 var M = int.Parse(Console.ReadLine());
@@ -9,15 +10,14 @@ var M = int.Parse(Console.ReadLine());
 Console.Write("Введите число N: ");
 var N = int.Parse(Console.ReadLine());
 
-int sum = 0;
-
-int Summa(int m, int n)
+int IncNum(int m, int n)
 {
-    if (m + 1 < n)
-    {
-        return m + Summa(m + 1, n);
-    }
-    else return 0;
+    int sum = 0;
+    if (m < n) sum = m + IncNum(m+1,n);
+    else
+      if (m == n) sum = m;
+
+    return sum;
 }
 
-System.Console.WriteLine(Summa(M, N));
+Console.WriteLine($"Сумма чисел от {M} до {N} = {IncNum(M,N)}");

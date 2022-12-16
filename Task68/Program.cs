@@ -20,4 +20,4 @@ int FuncA(int m, int n)
         return FuncA(m - 1, FuncA(m, n - 1));
 }
 
-Console.Write(FuncA(m, n));
+Console.Write($"A({m},{n}) = {FuncA(m, n)}");
